@@ -22,7 +22,6 @@ async function fetchProducts(url) {
     }
     
     const data = await response.json();
-    console.log('Productos obtenidos:', data);
     
     return data;
   } catch (error) {
@@ -34,8 +33,6 @@ async function fetchProducts(url) {
 // Función para obtener productos filtrados desde backend
 async function fetchFilteredProducts(filters) {
   try {
-    console.log('Enviando filtros al backend:', filters);
-    
     const response = await fetch(FILTER_API_URL, {
       method: 'POST',
       headers: {
@@ -53,7 +50,6 @@ async function fetchFilteredProducts(filters) {
     }
     
     const data = await response.json();
-    console.log('Productos filtrados del backend:', data);
     
     return data;
   } catch (error) {
@@ -180,7 +176,6 @@ function sortProducts(products, sortBy) {
       break;
   }
   
-  console.log(`Productos ordenados por: ${sortBy}`);
   return sortedProducts;
 }
 
@@ -188,8 +183,6 @@ function sortProducts(products, sortBy) {
 function applyLocalFilters() {
   const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
   const sortBy = document.getElementById('sortFilter')?.value || '';
-  
-  console.log('Aplicando filtros locales - Búsqueda:', searchTerm, 'Ordenamiento:', sortBy);
   
   // Filtrar por búsqueda
   if (!searchTerm.trim()) {
@@ -212,7 +205,6 @@ function applyLocalFilters() {
   isUsingBackendFilter = false;
   updateFilterMode(false);
   
-  console.log('Productos después de filtros locales:', filteredProducts.length);
   renderCards(filteredProducts);
 }
 
@@ -244,13 +236,11 @@ async function applyBackendFilters() {
       if (minPrice && !maxPrice) {
         maxPriceInput.value = '999999';
         prices.push(minPrice, '999999');
-        console.log('Autocompletando precio máximo con 999999');
       }
       // Si solo se ingresa precio máximo, autocompletar mínimo con 0
       else if (!minPrice && maxPrice) {
         minPriceInput.value = '0';
         prices.push('0', maxPrice);
-        console.log('Autocompletando precio mínimo con 0');
       }
       // Si se ingresan ambos valores
       else if (minPrice && maxPrice) {
@@ -259,7 +249,6 @@ async function applyBackendFilters() {
       
       if (prices.length > 0) {
         filters.prices = prices;
-        console.log('Rango de precios configurado:', prices);
       }
     }
     
@@ -272,8 +261,6 @@ async function applyBackendFilters() {
         filters.names = names;
       }
     }
-    
-    console.log('Filtros a enviar:', filters);
     
     // Si no hay filtros, cargar todos los productos
     if (Object.keys(filters).length === 0) {
@@ -378,15 +365,12 @@ function setupEventDelegation() {
     container.addEventListener('click', function(event) {
       if (event.target && event.target.id && event.target.id.startsWith('btn-')) {
         const itemId = event.target.id.replace('btn-', '');
-        console.log('Botón clickeado para item:', itemId);
         
         const item = filteredProducts.find(product => product.id.toString() === itemId);
         
         if (item) {
           const quantityInput = document.getElementById(`quantity-${itemId}`);
           const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
-          
-          console.log('Agregando al carrito:', item, 'Cantidad:', quantity);
           
           if (typeof addItemTocart === 'function') {
             addItemTocart(item, quantity);
@@ -399,8 +383,6 @@ function setupEventDelegation() {
         }
       }
     });
-    
-    console.log('Delegación de eventos configurada correctamente');
   }
 }
 
@@ -459,15 +441,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }, 300);
     });
-    
-    console.log('Búsqueda configurada correctamente');
   }
   
   // Configurar ordenamiento (funciona con ambos tipos de filtro)
   const sortFilter = document.getElementById('sortFilter');
   if (sortFilter) {
     sortFilter.addEventListener('change', function() {
-      console.log('Ordenamiento cambiado a:', this.value);
       if (isUsingBackendFilter) {
         // Re-aplicar ordenamiento a productos del backend
         const sortBy = this.value;
@@ -477,8 +456,6 @@ document.addEventListener('DOMContentLoaded', function() {
         applyLocalFilters();
       }
     });
-    
-    console.log('Ordenamiento configurado correctamente');
   }
   
   // Configurar botones de filtros avanzados
@@ -492,6 +469,4 @@ document.addEventListener('DOMContentLoaded', function() {
   if (clearFiltersBtn) {
     clearFiltersBtn.addEventListener('click', clearAllFilters);
   }
-  
-  console.log('Filtros avanzados configurados correctamente');
 });

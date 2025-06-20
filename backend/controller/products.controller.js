@@ -37,7 +37,6 @@ export const createProduct = (req, res) => {
     }
 };
 
-
 export const getProductByParams = (req, res) => {
     try {
         const { names, prices, categories } = req.body || {};
