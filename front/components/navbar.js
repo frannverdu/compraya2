@@ -1,22 +1,3 @@
-const categoriesDropdown = [];
-
-async function getCategories() {
-  try {
-    const response = await fetch("../data/categories.json");
-    if (!response.ok) {
-      throw new Error("Error al cargar el archivo JSON");
-    }
-    const data = await response.json();
-    data.forEach((category) => {
-      categoriesDropdown.push({ title: category.name, url: category.url });
-    });
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
-await getCategories();
-
 export function createNavbar() {
   const navbarHTML = `
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
@@ -46,16 +27,10 @@ export function createNavbar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Categorías
+                Productos
               </a>
               <ul class="dropdown-menu">
-                ${categoriesDropdown
-                  .map(
-                    (category) => `
-                  <li><a class="dropdown-item" href="${category.url}"> ${category.title} </a></li>
-                `
-                  )
-                  .join("")}
+                  <li><a class="dropdown-item" href="/products/products.html"> Todos </a></li>
               </ul>
             </li>
           </ul>

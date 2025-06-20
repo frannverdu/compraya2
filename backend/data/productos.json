@@ -1,38 +1,162 @@
 [
-    {
-      "id": 1,
-      "nombre": "Smartphone XPro 12",
-      "desc": "Smartphone con pantalla OLED de 6.7 pulgadas, cámara de 108MP y procesador Snapdragon 888",
-      "precio": 799.99,
-      "imagen": "smartphone_xpro12.jpg"
-    },
-    {
-      "id": 2,
-      "nombre": "Laptop Ultra 15",
-      "desc": "Laptop de 15 pulgadas con procesador Intel i7, 16GB RAM y 512GB SSD",
-      "precio": 1299.99,
-      "imagen": "laptop_ultra15.jpg"
-    },
-    {
-      "id": 3,
-      "nombre": "Auriculares Bluetooth Pro",
-      "desc": "Auriculares inalámbricos con cancelación de ruido y hasta 30 horas de autonomía",
-      "precio": 199.99,
-      "imagen": "auriculares_bluetooth_pro.jpg"
-    },
-    {
-      "id": 4,
-      "nombre": "Smartwatch Z-Track",
-      "desc": "Smartwatch con seguimiento de actividad, GPS integrado y monitor de frecuencia cardíaca",
-      "precio": 249.99,
-      "imagen": "smartwatch_ztrack.jpg"
-    },
-    {
-      "id": 5,
-      "nombre": "Tableta AirPad 10",
-      "desc": "Tableta de 10 pulgadas con pantalla Full HD, 64GB de almacenamiento y soporte para lápiz óptico",
-      "precio": 349.99,
-      "imagen": "tableta_airpad10.jpg"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Smartphone XPro 12",
+    "description": "Smartphone con pantalla OLED de 6.7 pulgadas, cámara de 108MP y procesador Snapdragon 888",
+    "price": 799.99,
+    "image": "https://http2.mlstatic.com/D_Q_NP_654535-MLA46168986731_052021-O.webp",
+    "category": "celular"
+  },
+  {
+    "id": 2,
+    "name": "Laptop Ultra 15",
+    "description": "Laptop de 15 pulgadas con procesador Intel i7, 16GB RAM y 512GB SSD",
+    "price": 1299.99,
+    "image": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+    "category": "notebook"
+  },
+  {
+    "id": 3,
+    "name": "Auriculares Bluetooth Pro",
+    "description": "Auriculares inalámbricos con cancelación de ruido y hasta 30 horas de autonomía",
+    "price": 199.99,
+    "image": "https://i5.walmartimages.com/seo/Dell-XPS-15-9520-Laptop-2022-15-6-4K-Touch-Core-i9",
+    "category": "notebook"
+  },
+  {
+    "id": 4,
+    "name": "Smartwatch Z-Track",
+    "description": "Smartwatch con seguimiento de actividad, GPS integrado y monitor de frecuencia cardíaca",
+    "price": 249.99,
+    "image": "https://acdn.mitiendanube.com/stores/001/907/418/products/3-56f7a2fd78fa77855f17253732164164-1024-1024.jpg",
+    "category": "celular"
+  },
+  {
+    "id": 5,
+    "name": "Tableta AirPad 10",
+    "description": "Tableta de 10 pulgadas con pantalla Full HD, 64GB de almacenamiento y soporte para lápiz óptico",
+    "price": 349.99,
+    "image": "https://m.media-amazon.com/images/I/71XZs3BCOtL._AC_SL1500_.jpg",
+    "category": "tablet"
+  },
+  {
+    "id": 6,
+    "name": "Smartphone Nova Edge",
+    "description": "Celular de gama media con triple cámara y batería de 5000mAh",
+    "price": 399.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrAPkJr-A83pgKDpNBrRatIXniBLXptZhmZQ&s",
+    "category": "celular"
+  },
+  {
+    "id": 7,
+    "name": "Notebook Gamer Titan 17",
+    "description": "Notebook gamer con pantalla de 17.3 pulgadas, RTX 4060 y 32GB RAM",
+    "price": 2199.99,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_786356-MLM51559385272_092022-O.webp",
+    "category": "notebook"
+  },
+  {
+    "id": 8,
+    "name": "Tablet MiniPad 8",
+    "description": "Tablet compacta con 8 pulgadas, ideal para lectura y navegación",
+    "price": 199.99,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_929463-MLA76597608846_062024-O.webp",
+    "category": "tablet"
+  },
+  {
+    "id": 9,
+    "name": "Smartphone Zen Pro 5G",
+    "description": "Celular 5G con pantalla curva y cámara de 64MP",
+    "price": 699.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXXjhgGHrUnLiJV-_BXw1EKyKcB7HpOyzTFnscV9S6A2q5yAyMrzk6QyHpRF0BE4S1sHo&usqp=CAU",
+    "category": "celular"
+  },
+  {
+    "id": 10,
+    "name": "Notebook FlexBook",
+    "description": "Notebook 2-en-1 con pantalla táctil y modo tablet",
+    "price": 999.99,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_892038-MLU74328290469_012024-O.webp",
+    "category": "notebook"
+  },
+  {
+    "id": 11,
+    "name": "Tablet ProSlate 12",
+    "description": "Tablet de 12 pulgadas con teclado desmontable",
+    "price": 499.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO_nQfa9PLbjib_gdJCZl0iEwBJ3Bwo-cT_gQdN9Flp2wVKObgob6R7vrs2pc37Nplqpg&usqp=CAU",
+    "category": "tablet"
+  },
+  {
+    "id": 12,
+    "name": "Smartphone Lite 6",
+    "description": "Celular compacto con Android 13 y cámara dual",
+    "price": 249.99,
+    "image": "https://todoclick.cl/6741021-large_default/notebook-hp-15-fd0006la-i7-1355u-12gb-512gb-ssd-w11p.jpg",
+    "category": "celular"
+  },
+  {
+    "id": 13,
+    "name": "Notebook EcoBook 14",
+    "description": "Notebook económica con 4GB RAM y 128GB SSD",
+    "price": 549.99,
+    "image": "https://ar-media.hptiendaenlinea.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/1/_/1_2.jpg",
+    "category": "notebook"
+  },
+  {
+    "id": 14,
+    "name": "Tablet KidsSafe",
+    "description": "Tablet para niños con contenido educativo y carcasa reforzada",
+    "price": 159.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROT57vcNM0ZcRNRD_UjYu_QrIe18hB0SwgyA&s",
+    "category": "tablet"
+  },
+  {
+    "id": 15,
+    "name": "Smartphone MaxView",
+    "description": "Smartphone con pantalla de 7 pulgadas y batería de larga duración",
+    "price": 599.99,
+    "image": "https://tiendanewsan.com.ar/media/catalog/product/n/1/n14p4020_7.jpg?auto=webp&format=pjpg&width=135&height=170&fit=cover",
+    "category": "celular"
+  },
+  {
+    "id": 16,
+    "name": "Notebook Studio 16",
+    "description": "Notebook para diseño gráfico con pantalla 4K y tarjeta dedicada",
+    "price": 1899.99,
+    "image": "https://www.casadelaudio.com/Image/0/750_750-156-SAM-935_(7).png",
+    "category": "notebook"
+  },
+  {
+    "id": 17,
+    "name": "Tablet UltraView X",
+    "description": "Tablet premium con soporte 5G y 256GB de almacenamiento",
+    "price": 649.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8b9J9AqmWqr2vbUah5T-s0YksV2KjkXLrqDRwvvBBpT7WWNwuXvL_fXJOVzj6L5EqB9M&usqp=CAU",
+    "category": "tablet"
+  },
+  {
+    "id": 18,
+    "name": "Smartphone PocketGo",
+    "description": "Smartphone pequeño y liviano con gran rendimiento",
+    "price": 299.99,
+    "image": "https://images.fravega.com/f300/97425de850cbbb549c34788421efd5f4.jpg",
+    "category": "celular"
+  },
+  {
+    "id": 19,
+    "name": "Notebook TravelMate",
+    "description": "Notebook ligera ideal para viajes, con batería de hasta 12 horas",
+    "price": 899.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjnocj6MDz_AH1i2YJJOmjcwgSM72wxs4CCA&s",
+    "category": "notebook"
+  },
+  {
+    "id": 20,
+    "name": "Tablet eReader Tab",
+    "description": "Tablet enfocada en lectura con pantalla e-ink y luz cálida",
+    "price": 299.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTugdkz6jIm8MDrQoWAbHntJbacvFOElsPAHQ&s",
+    "category": "tablet"
+  }
+]

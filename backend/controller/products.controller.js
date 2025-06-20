@@ -37,23 +37,42 @@ export const createProduct = (req, res) => {
     }
 };
 
+
 export const getProductByParams = (req, res) => {
     try {
-        const { names, prices } = req.body || {};
+        const { names, prices, categories } = req.body || {};
         let filteredProducts = data;
+        // Filtro por nombres
         if (names && Array.isArray(names) && names.length) {
             filteredProducts = filteredProducts.filter(product =>
-                names.some(name => product.nombre.toLowerCase().includes(name.toLowerCase()))
+                names.some(name => product.name.toLowerCase().includes(name.toLowerCase()))
             );
         }
-        if (prices && Array.isArray(prices) && prices.length) {
+        // Filtro por precios
+        if (prices && Array.isArray(prices) && prices.length >= 2) {
+            const minPrice = parseFloat(prices[0]);
+            const maxPrice = parseFloat(prices[1]);
+
+            filteredProducts = filteredProducts.filter(product => {
+                if (product.price === undefined || product.price === null) {
+                    return false;
+                }
+                const productPrice = parseFloat(product.price);
+                return productPrice >= minPrice && productPrice <= maxPrice;
+            });
+        }
+        // Filtro por categorías
+        if (categories && Array.isArray(categories) && categories.length) {
             filteredProducts = filteredProducts.filter(product =>
-                prices.some(price => product.precio.toString().includes(price.toString()))
+                categories.some(category =>
+                    product.category.toLowerCase() === category.toLowerCase()
+                )
             );
         }
         if (filteredProducts.length === 0) {
             return res.status(400).json({ message: 'No se encontraron productos con esos parámetros' });
         }
+
         res.status(200).json(filteredProducts);
     } catch (error) {
         res.status(500).json({ message: 'Hubo un problema al buscar los productos.' });
