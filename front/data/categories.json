@@ -1,0 +1,163 @@
+[
+  {
+    "id": "notebooks",
+    "name": "Notebooks",
+    "url": "/categories/genericCategories.html?category=notebooks",
+    "items": [
+      {
+        "id": "item1",
+        "image": "https://http2.mlstatic.com/D_Q_NP_654535-MLA46168986731_052021-O.webp",
+        "name": "Notebook UltraBook Pro",
+        "description": "Laptop de alto rendimiento con pantalla 4K y procesador Intel i7 de última generación.",
+        "price": "1500"
+      },
+      {
+        "id": "item2",
+        "image": "https://www.megatone.net/images/Articulos/zoom2x/200/04/MKT0419SEN_2.jpg",
+        "name": "Notebook Flex 360",
+        "description": "Laptop convertible con pantalla táctil y diseño ligero para máxima portabilidad.",
+        "price": "1200"
+      },
+      {
+        "id": "item3",
+        "image": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg4OXwwfDF8c2VhcmNofDkwfHxub3RlYm9va3xlbnwwfHx8fDE2NzAwODg1Mzk&ixlib=rb-1.2.1&q=80&w=1080",
+        "name": "MacBook Pro M1",
+        "description": "Notebook con el chip M1 de Apple, ideal para tareas de alta demanda.",
+        "price": "2500"
+      },
+      {
+        "id": "item4",
+        "image": "https://i5.walmartimages.com/seo/Dell-XPS-15-9520-Laptop-2022-15-6-4K-Touch-Core-i9-1TB-SSD-32GB-RAM-3050-Ti-14-Cores-5-GHz-12th-Gen-CPU_df471863-0fd7-49ab-8585-2585245b1b24.fe6dc231ec9cd6b9862bd54d5933e13f.jpeg",
+        "name": "Dell XPS 15",
+        "description": "Laptop de 15 pulgadas con procesador Intel Core i9, ideal para diseñadores y desarrolladores.",
+        "price": "2100"
+      },
+      {
+        "id": "item5",
+        "image": "https://acdn.mitiendanube.com/stores/001/907/418/products/3-56f7a2fd78fa77855f17253732164164-1024-1024.jpg",
+        "name": "HP Spectre x360",
+        "description": "Convertible ultradelgada con gran batería y pantalla táctil, ideal para trabajo y entretenimiento.",
+        "price": "1300"
+      },
+      {
+        "id": "item6",
+        "image": "https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MzQ1Njg2fGltYWdlL2pwZWd8aGQ1L2g3OC8xNDMzMjk4NzM0Mjg3OC5qcGd8NDg2ZGE2MGEwNmE0OWU1NzI0NWQ4MDRmY2I1Mjc1ZjdhMGRjZTY2YzIwYWNmOTRjN2I3NTBjZGE1NTU3ZWZhZA/lenovo-laptop-thinkpad-x1-carbon-7th-gen-gallery-1.jpg",
+        "name": "Lenovo ThinkPad X1 Carbon",
+        "description": "Laptop ultradelgada de alta resistencia con un rendimiento excepcional para profesionales.",
+        "price": "1800"
+      },
+      {
+        "id": "item7",
+        "image": "https://m.media-amazon.com/images/I/71XZs3BCOtL._AC_SL1500_.jpg",
+        "name": "Asus ROG Zephyrus G14",
+        "description": "Laptop para gamers con gráficos NVIDIA y una pantalla de 120Hz, ideal para juegos y trabajos gráficos.",
+        "price": "2200"
+      },
+      {
+        "id": "item8",
+        "image": "https://m.media-amazon.com/images/I/61YyBesJqcL._AC_SL1500_.jpg",
+        "name": "Microsoft Surface Laptop 4",
+        "description": "Laptop con pantalla PixelSense de 13.5\" y procesador Intel Core i7, perfecta para profesionales.",
+        "price": "1700"
+      },
+      {
+        "id": "item9",
+        "image": "https://m.media-amazon.com/images/I/71vvXGmdKWL._AC_SL1500_.jpg",
+        "name": "Acer Aspire 5",
+        "description": "Laptop económica con pantalla de 15.6\", ideal para tareas básicas y uso diario.",
+        "price": "600"
+      },
+      {
+        "id": "item10",
+        "image": "https://tiendadiggit.com.ar/web/image/product.image/8247/image_1024/Notebook%20HP%2014-DV2001LA%20Pavilion%20Core%20I5%208GB%20512GB?unique=2c788e1",
+        "name": "HP Pavilion 14",
+        "description": "Laptop económica con buen rendimiento y batería de larga duración, ideal para estudiantes.",
+        "price": "750"
+      }
+    ]
+  },
+  {
+    "id": "celulares",
+    "name": "Celulares",
+    "url": "/categories/genericCategories.html?category=celulares",
+    "items": [
+      {
+        "id": "item11",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyR5fH_Tn_BAZK08F3mjTYTh8GokpZh996Qw&s",
+        "name": "iPhone 14 Pro Max",
+        "description": "Smartphone de última generación con cámara ProRAW de 48 MP y pantalla OLED.",
+        "price": "1100"
+      },
+      {
+        "id": "item12",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToNURN7YlEIVjTKcMIwK77ZPW7lUP6c_9jhw&s",
+        "name": "Samsung Galaxy S23",
+        "description": "Smartphone con pantalla Dynamic AMOLED 2X y cámaras profesionales de 50 MP.",
+        "price": "950"
+      },
+      {
+        "id": "item13",
+        "image": "https://www.undertec.store/wp-content/uploads/2023/10/google-pixel-8-pro.webp",
+        "name": "Google Pixel 8 Pro",
+        "description": "El último teléfono de Google con inteligencia artificial avanzada y cámaras increíbles.",
+        "price": "1050"
+      },
+      {
+        "id": "item14",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrTlZJ8ZCCJasZ5WC2GRR7c633nHRbedtutA&s",
+        "name": "Xiaomi Mi 13",
+        "description": "Celular de gama alta con cámaras de 200 MP y carga rápida de 120W.",
+        "price": "800"
+      },
+      {
+        "id": "item15",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ1Mgh_tmoPbXFssg-HYOGWYXUJWTkfsGoTA&s",
+        "name": "OnePlus 11",
+        "description": "Smartphone premium con 5G, pantalla Fluid AMOLED y batería de larga duración.",
+        "price": "950"
+      }
+    ]
+  },
+  {
+    "id": "tablets",
+    "name": "Tablets",
+    "url": "/categories/genericCategories.html?category=tablets",
+    "items": [
+      {
+        "id": "item16",
+        "image": "https://stylewatch.vtexassets.com/arquivos/ids/201755/Apple-iPad-Pro-MXF72LEA-1.jpg?v=637708773190130000",
+        "name": "Apple iPad Pro 12.9\"",
+        "description": "Tablet profesional con chip M1, ideal para diseño gráfico y edición de video.",
+        "price": "1200"
+      },
+      {
+        "id": "item17",
+        "image": "https://i.ebayimg.com/images/g/31cAAOSw5gtkN8p1/s-l1200.jpg",
+        "name": "Samsung Galaxy Tab S8 Ultra",
+        "description": "Tablet con pantalla Super AMOLED y soporte para el S Pen, ideal para creativos.",
+        "price": "1050"
+      },
+      {
+        "id": "item18",
+        "image": "https://m.media-amazon.com/images/I/61xHYJW4rbL._AC_SL1500_.jpg",
+        "name": "Microsoft Surface Pro 8",
+        "description": "Tablet 2 en 1 con Windows 11, ideal para trabajar y disfrutar de contenido multimedia.",
+        "price": "1300"
+      },
+      {
+        "id": "item19",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_761583-MLU72756185512_112023-O.webp",
+        "name": "Lenovo Tab P11 Pro",
+        "description": "Tablet de gama alta con soporte para teclado y lápiz óptico.",
+        "price": "800"
+      },
+      {
+        "id": "item20",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxPslPPB6jwjQE21rkHLs4BmUTkWUAZqBvyw&s",
+        "name": "Amazon Fire HD 10",
+        "description": "Tablet económica con pantalla Full HD, ideal para consumo de contenido.",
+        "price": "150"
+      }
+    ]
+  }
+]

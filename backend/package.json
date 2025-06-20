@@ -1,0 +1,25 @@
+{
+  "name": "serverexpress",
+  "version": "1.0.0",
+  "description": "tp2",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frannverdu/serverexpress.git"
+  },
+  "author": "fverdu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frannverdu/serverexpress/issues"
+  },
+  "homepage": "https://github.com/frannverdu/serverexpress#readme",
+  "keywords": [],
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

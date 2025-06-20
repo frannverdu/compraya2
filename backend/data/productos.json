@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "nombre": "Smartphone XPro 12",
+      "desc": "Smartphone con pantalla OLED de 6.7 pulgadas, cámara de 108MP y procesador Snapdragon 888",
+      "precio": 799.99,
+      "imagen": "smartphone_xpro12.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Laptop Ultra 15",
+      "desc": "Laptop de 15 pulgadas con procesador Intel i7, 16GB RAM y 512GB SSD",
+      "precio": 1299.99,
+      "imagen": "laptop_ultra15.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Auriculares Bluetooth Pro",
+      "desc": "Auriculares inalámbricos con cancelación de ruido y hasta 30 horas de autonomía",
+      "precio": 199.99,
+      "imagen": "auriculares_bluetooth_pro.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Smartwatch Z-Track",
+      "desc": "Smartwatch con seguimiento de actividad, GPS integrado y monitor de frecuencia cardíaca",
+      "precio": 249.99,
+      "imagen": "smartwatch_ztrack.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "Tableta AirPad 10",
+      "desc": "Tableta de 10 pulgadas con pantalla Full HD, 64GB de almacenamiento y soporte para lápiz óptico",
+      "precio": 349.99,
+      "imagen": "tableta_airpad10.jpg"
+    }
+  ]
+  

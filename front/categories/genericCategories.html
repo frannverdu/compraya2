@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="title"> </title>
+    <link rel="icon" href="../public/store.ico" type="image/x-icon" />
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="../public/styles.css" />
+    <body>
+      <header id="navbar-container"></header>
+      <div class="p-4">
+        <div id="category-header"></div>
+      </div>
+    </body>
+    <main class="container">
+      <div class="row">
+        <div class="input-group input-group-lg">
+          <span class="input-group-text">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Filtrar..."
+            id="searchInput"
+          />
+        </div>
+      </div>
+      <div class="row" id="items-container"></div>
+    </main>
+    <!-- JS propio -->
+    <script type="module" src="./categories.js"></script>
+    <!-- Recursos -->
+    <script
+      src="https://kit.fontawesome.com/9662673cdd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+</html>

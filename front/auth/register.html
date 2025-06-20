@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es" class="center-content">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compra YA! - Registro</title>
+    <link rel="icon" href="../public/store.ico" type="image/x-icon">
+
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body class="d-flex align-items-center my-2">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center">
+        <div class="col col-12 col-sm-8 col-md-7 col-lg-5 col-xl-5 col-xxl-4">
+          <div class="card login-card shadow-lg bg-body-tertiary rounded">
+            <div class="card-header">
+              <h3 class="my-2 fw-semibold">Datos para el registro</h3>
+            </div>
+            <div class="card-body">
+              <form onsubmit="register(event)">
+                <i
+                class="fa-solid fa-user fa-lg shadow-lg"
+                style="color: #7c7e80"
+              ></i>
+              <label for="name" class="form-label fw-semibold ps-1">
+                Nombre completo:</label
+              >
+              <div class="mb-3 form-floating">
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Nombre y apellido"
+                />
+                <label for="name">Nombre y apellido</label>
+              </div>
+
+              <i class="fa-solid fa-calendar fa-lg" style="color: #7c7e80"></i>
+              <label for="date" class="form-label fw-semibold ps-1">
+                Nombre completo:</label
+              >
+              <div class="mb-3 form-floating">
+                <input
+                  required
+                  type="date"
+                  class="form-control"
+                  id="userDate"
+                  placeholder="Fecha de nacimiento"
+                />
+                <label for="name">Fecha de nacimiento</label>
+              </div>
+
+              <i class="fa-solid fa-at fa-lg" style="color: #7c7e80"></i>
+                <label for="email" class="form-label fw-semibold ps-1">
+                  Email:</label
+                >
+                <div class="mb-3 form-floating">
+                  <input
+                    required
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Ingrese su email"
+                  />
+                  <label for="email">Email</label>
+                </div>
+                <i class="fa-solid fa-lock fa-lg" style="color: #7c7e80"></i>
+                <label for="password" class="form-label fw-semibold ps-1">
+                  Contraseña:
+                </label>
+                <div class="mb-3 form-floating">
+                  <input
+                    required
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Contraseña"
+                  />
+                  <label for="password">Contraseña</label>
+                </div>
+                <i
+                  class="fa-solid fa-user fa-lg shadow-lg"
+                  style="color: #7c7e80"
+                ></i>
+                <label for="repeatPassword" class="form-label fw-semibold ps-1">
+                  Repetir contraseña:</label
+                >
+                <div class="mb-3 form-floating">
+                  <input
+                    required
+                    type="password"
+                    class="form-control"
+                    id="repeatPassword"
+                    placeholder="Ingrese su contraseña"
+                  />
+                  <label for="repeatPassword">Repetir contraseña</label>
+                </div>
+                <button
+                  class="btn btn-primary w-100 shadow-sm btn-sm"
+                  type="submit"
+                >
+                  Registrarse
+                </button>
+                <hr></hr>
+                <a class="btn btn-outline-primary btn-sm w-100" href="./login.html" role="button">Cancelar</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JS propio -->
+    <script src="./register.js"></script>
+
+    <script
+    src="https://kit.fontawesome.com/9662673cdd.js"
+    crossorigin="anonymous"
+  ></script>
+  </body>
+</html>

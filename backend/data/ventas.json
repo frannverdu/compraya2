@@ -1,0 +1,113 @@
+[
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "fecha": "2025-03-25",
+      "total": 41.49,
+      "direccion": "Calle Felicia",
+      "productos": [
+        {
+          "id": 1,
+          "cantidad": 2
+        },
+        {
+          "id": 2,
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "id_usuario": 2,
+      "fecha": "2025-03-26",
+      "total": 70.50,
+      "direccion": "Avenida Real Madrid",
+      "productos": [
+        {
+          "id": 2,
+          "cantidad": 2
+        },
+        {
+          "id": 3,
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "id_usuario": 3,
+      "fecha": "2025-03-27",
+      "total": 1149.99,
+      "direccion": "Calle Las Palmas 45",
+      "productos": [
+        {
+          "id": 2,
+          "cantidad": 1
+        },
+        {
+          "id": 1,
+          "cantidad": 1
+        },
+        {
+          "id": 4,
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "id_usuario": 4,
+      "fecha": "2025-03-27",
+      "total": 249.99,
+      "direccion": "Calle de la Luna 78",
+      "productos": [
+        {
+          "id": 3,
+          "cantidad": 1
+        },
+        {
+          "id": 5,
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "id_usuario": 1,
+      "fecha": "2025-03-28",
+      "total": 1099.98,
+      "direccion": "Calle Felicia",
+      "productos": [
+        {
+          "id": 2,
+          "cantidad": 1
+        },
+        {
+          "id": 1,
+          "cantidad": 1
+        },
+        {
+          "id": 4,
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "id_usuario": 2,
+      "fecha": "2025-03-29",
+      "total": 799.99,
+      "direccion": "Avenida Central 33",
+      "productos": [
+        {
+          "id": 1,
+          "cantidad": 1
+        },
+        {
+          "id": 3,
+          "cantidad": 1
+        }
+      ]
+    }
+  ]
+  
