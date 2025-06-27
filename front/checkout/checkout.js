@@ -6,20 +6,76 @@ const SALES_API_URL = 'http://localhost:3000/sales/sale';
 
 window.onload = function () {
   navbar.updateCartButton();
+  // Verificar si el usuario está logueado
+  checkAuthStatus();
 };
+
+function checkAuthStatus() {
+  const token = sessionStorage.getItem('token');
+  if (!token) {
+    alert('Debes iniciar sesión para continuar con la compra');
+    window.location.href = '/auth/login.html';
+    return false;
+  }
+  return true;
+}
+
+// Función para obtener el token del sessionStorage
+function getAuthToken() {
+  return sessionStorage.getItem('token');
+}
+
+// Función para obtener el userId (puedes ajustar según cómo manejes el usuario)
+function getUserId() {
+  // Opción 1: Si guardas el userId directamente en sessionStorage
+  const userId = sessionStorage.getItem('userId');
+  if (userId) {
+    return parseInt(userId);
+  }
+  
+  // Opción 2: Si necesitas decodificar el token JWT para obtener el userId
+  const token = getAuthToken();
+  if (token) {
+    try {
+      // Decodificar JWT (solo la parte del payload)
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.userId || payload.id || payload.sub;
+    } catch (error) {
+      console.error('Error al decodificar el token:', error);
+      return null;
+    }
+  }
+  
+  return null;
+}
 
 // Función para registrar la venta en el backend
 async function registerSale(saleData) {
   try {
+    const token = getAuthToken();
+    
+    if (!token) {
+      throw new Error('No se encontró token de autenticación');
+    }
+
     const response = await fetch(SALES_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Agregar token en el header
       },
       body: JSON.stringify(saleData)
     });
 
     if (!response.ok) {
+      // Si el token expiró o es inválido (401), redirigir al login
+      if (response.status === 401) {
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('userId');
+        alert('Tu sesión ha expirado. Por favor, inicia sesión nuevamente.');
+        window.location.href = '/login.html';
+        return;
+      }
       throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
     }
 
@@ -35,6 +91,11 @@ async function registerSale(saleData) {
 // Función para procesar la compra
 async function processPurchase() {
   try {
+    // Verificar autenticación antes de procesar
+    if (!checkAuthStatus()) {
+      return;
+    }
+
     const items = JSON.parse(localStorage.getItem("cart") || "[]");
     
     if (items.length === 0) {
@@ -50,14 +111,22 @@ async function processPurchase() {
       return;
     }
 
+    // Obtener userId del token/sessionStorage
+    const userId = getUserId();
+    if (!userId) {
+      alert('Error al obtener información del usuario. Por favor, inicia sesión nuevamente.');
+      window.location.href = '/login.html';
+      return;
+    }
+
     // Calcular total
     const total = items.reduce((sum, item) => {
       return sum + (item.item.price * item.quantity);
     }, 0);
 
-    // Preparar datos de la venta según tu backend
+    // Preparar datos de la venta
     const saleData = {
-      userId: 1, // Por ahora hardcodeado, puedes cambiarlo por el usuario logueado
+      userId: userId, // Usar el userId real del token
       date: new Date().toISOString(),
       total: total,
       address: address,

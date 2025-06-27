@@ -1,5 +1,6 @@
 import usersData from '../data/usuarios.json' with { type: "json" };
 import sales from '../data/ventas.json' with { type: "json" };
+import bcrypt from 'bcrypt';
 
 export const getUsers = (req, res) => {
   if (!usersData || usersData.length === 0) {
@@ -17,7 +18,7 @@ export const getUser = (req, res) => {
   res.json(user);
 };
 
-export const createUser = (req, res) => {
+export const createUser = async (req, res) => {
   try {
     const { name, lastName, email, password } = req.body || {};
     if (!name || !lastName || !email || !password) {
@@ -27,16 +28,20 @@ export const createUser = (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: 'El correo electrónico ya está registrado' });
     }
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newId = usersData.length > 0 ? Math.max(...usersData.map(user => user.id)) + 1 : 1;
     const newUser = {
       id: newId,
       nombre: name,
       apellido: lastName,
       email,
-      contraseña: password
-    }; s
+      password: hashedPassword
+    };
     usersData.push(newUser);
-    res.status(201).json(newUser);
+    const userResponse = newUser;
+    res.status(201).json(userResponse);
+    
   } catch (error) {
     res.status(500).json({ message: 'Hubo un error al crear el usuario' });
   }
@@ -86,7 +91,7 @@ export const updateUser = (req, res) => {
       nombre: name,
       apellido: lastName,
       email: email,
-      contraseña: password,
+      password: password,
     };
     res.status(200).json(usersData[userIndex]);
   } catch (error) {

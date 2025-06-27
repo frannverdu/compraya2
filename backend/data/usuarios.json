@@ -1,24 +1,30 @@
 [
-    {
-      "id": 1,
-      "nombre": "Juan Carlos",
-      "apellido": "Pérez",
-      "email": "juan.perez@example.com",
-      "contraseña": "hashed_password_123"
-    },
-    {
-      "id": 2,
-      "nombre": "María",
-      "apellido": "Gómez",
-      "email": "maria.gomez@example.com",
-      "contraseña": "hashed_password_456"
-    },
-    {
-      "id": 5,
-      "nombre": "Carlos",
-      "apellido": "Pérez",
-      "email": "carlos.perez@example.com",
-      "contraseña": "hashed_password_789"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "nombre": "Juan Carlos",
+    "apellido": "Pérez",
+    "email": "juan.perez@example.com",
+    "password": "hashed_password_123"
+  },
+  {
+    "id": 2,
+    "nombre": "María",
+    "apellido": "Gómez",
+    "email": "maria.gomez@example.com",
+    "password": "hashed_password_456"
+  },
+  {
+    "id": 5,
+    "nombre": "Carlos",
+    "apellido": "Pérez",
+    "email": "carlos.perez@example.com",
+    "password": "hashed_password_789"
+  },
+  {
+    "id": 6,
+    "nombre": "Hugo",
+    "apellido": "Gil",
+    "email": "hugo@gil.com",
+    "password": "$2b$10$F0dQ8qmUkiwIDlIm71AnXOusltMy..UR608ULnXhXX.dorlXuo4Na"
+  }
+]

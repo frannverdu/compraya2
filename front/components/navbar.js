@@ -1,4 +1,12 @@
 export function createNavbar() {
+  // Verificar si hay una sesión activa
+  const userName = sessionStorage.getItem("userName");
+  const isLoggedIn = userName && userName.trim() !== "";
+  
+  // Cambiar texto y icono del botón según el estado de la sesión
+  const authButtonText = isLoggedIn ? "Cerrar sesión" : "Iniciar sesión";
+  const authButtonIcon = isLoggedIn ? "fa-right-from-bracket" : "fa-right-to-bracket";
+  
   const navbarHTML = `
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
       <div class="container-fluid">
@@ -39,9 +47,9 @@ export function createNavbar() {
               Carrito
               <i class="fa-solid fa-cart-shopping fa-lg"></i>
             </button>
-            <button class="btn btn-outline-secondary btn-sm" id="logoutButton">
-              Cerrar sesión
-              <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+            <button class="btn btn-outline-secondary btn-sm" id="authButton">
+              ${authButtonText}
+              <i class="fa-solid ${authButtonIcon} fa-lg"></i>
             </button>
           </div>
         </div>
@@ -54,7 +62,7 @@ export function createNavbar() {
     navbarContainer.innerHTML = navbarHTML;
 
     const carritoButton = document.getElementById("carritoButton");
-    const logoutButton = document.getElementById("logoutButton");
+    const authButton = document.getElementById("authButton");
 
     if (carritoButton) {
       carritoButton.addEventListener("click", () => {
@@ -62,9 +70,17 @@ export function createNavbar() {
       });
     }
 
-    if (logoutButton) {
-      logoutButton.addEventListener("click", () => {
-        window.location.href = "../auth/login.html";
+    if (authButton) {
+      authButton.addEventListener("click", () => {
+        if (isLoggedIn) {
+          sessionStorage.removeItem("userName");
+          sessionStorage.removeItem("userEmail");
+          sessionStorage.removeItem("token");
+          window.location.href = "../auth/login.html";
+        } else {
+          // Si no está logueado, ir a login
+          window.location.href = "../auth/login.html";
+        }
       });
     }
   }
@@ -86,4 +102,21 @@ function updateCartButton() {
   }
 }
 
-export default { createNavbar, updateCartButton };
+// Nueva función para actualizar el estado del botón de autenticación
+function updateAuthButton() {
+  const userName = sessionStorage.getItem("userName");
+  const isLoggedIn = userName && userName.trim() !== "";
+  
+  const authButton = document.getElementById("authButton");
+  if (authButton) {
+    const authButtonText = isLoggedIn ? "Cerrar sesión" : "Iniciar sesión";
+    const authButtonIcon = isLoggedIn ? "fa-right-from-bracket" : "fa-right-to-bracket";
+    
+    authButton.innerHTML = `
+      ${authButtonText}
+      <i class="fa-solid ${authButtonIcon} fa-lg"></i>
+    `;
+  }
+}
+
+export default { createNavbar, updateCartButton, updateAuthButton };
