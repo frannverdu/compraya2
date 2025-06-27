@@ -1,21 +1,30 @@
-import usersData from '../data/usuarios.json' with { type: "json" };
-import sales from '../data/ventas.json' with { type: "json" };
+import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
+import { User, Sale } from '../models/models.js';
 
-export const getUsers = (req, res) => {
-  if (!usersData || usersData.length === 0) {
-    return res.status(400).json({ message: 'No hay usuarios disponibles.' });
+export const getUsers = async (req, res) => {
+  try {
+    const usersData = await User.find();
+    if (!usersData || usersData.length === 0) {
+      return res.status(400).json({ message: 'No hay usuarios disponibles.' });
+    }
+    res.json(usersData);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener usuarios' });
   }
-  res.json(usersData);
 };
 
-export const getUser = (req, res) => {
-  const { id } = req.params;
-  const user = usersData.find(user => user.id === parseInt(id));
-  if (!user) {
-    return res.status(400).json({ message: 'Usuario no encontrado.' });
+export const getUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findOne({ id: parseInt(id) });
+    if (!user) {
+      return res.status(400).json({ message: 'Usuario no encontrado.' });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener usuario' });
   }
-  res.json(user);
 };
 
 export const createUser = async (req, res) => {
@@ -24,12 +33,13 @@ export const createUser = async (req, res) => {
     if (!name || !lastName || !email || !password) {
       return res.status(400).json({ message: 'Faltan datos obligatorios' });
     }
-    const existingUser = usersData.find(user => user.email === email);
+    const existingUser = await User.findOne({ email: email });
     if (existingUser) {
       return res.status(400).json({ message: 'El correo electrónico ya está registrado' });
     }
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const usersData = await User.find();
     const newId = usersData.length > 0 ? Math.max(...usersData.map(user => user.id)) + 1 : 1;
     const newUser = {
       id: newId,
@@ -38,8 +48,8 @@ export const createUser = async (req, res) => {
       email,
       password: hashedPassword
     };
-    usersData.push(newUser);
-    const userResponse = newUser;
+    const savedUser = await User.create(newUser);
+    const userResponse = savedUser;
     res.status(201).json(userResponse);
     
   } catch (error) {
@@ -47,9 +57,10 @@ export const createUser = async (req, res) => {
   }
 };
 
-export const getUserByParams = (req, res) => {
+export const getUserByParams = async (req, res) => {
   try {
     const { names, lastNames, emails } = req.body || {};
+    const usersData = await User.find();
     let filteredUsers = usersData;
     if (names && Array.isArray(names) && names.length) {
       filteredUsers = filteredUsers.filter(user =>
@@ -75,40 +86,48 @@ export const getUserByParams = (req, res) => {
   }
 };
 
-export const updateUser = (req, res) => {
+export const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
     const { name, lastName, email, password } = req.body || {};
     if (!id || !name || !lastName || !email || !password) {
       return res.status(400).json({ message: 'Faltan datos obligatorios para actualizar el usuario.' });
     }
-    const userIndex = usersData.findIndex(user => user.id === parseInt(id));
-    if (userIndex === -1) {
+    const user = await User.findOne({ id: parseInt(id) });
+    if (!user) {
       return res.status(400).json({ message: 'Usuario no encontrado.' });
     }
-    usersData[userIndex] = {
-      ...usersData[userIndex],
-      nombre: name,
-      apellido: lastName,
-      email: email,
-      password: password,
-    };
-    res.status(200).json(usersData[userIndex]);
+    const updatedUser = await User.findOneAndUpdate(
+      { id: parseInt(id) },
+      {
+        nombre: name,
+        apellido: lastName,
+        email: email,
+        password: password,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedUser);
   } catch (error) {
     res.status(500).json({ message: 'Hubo un problema al actualizar el usuario.' });
   }
 };
 
-export const deleteUser = (req, res) => {
-  const { id } = req.params;
-  const userHasSales = sales.some(sale => sale.id_usuario === parseInt(id));
-  if (userHasSales) {
-    return res.status(400).json({ message: 'No se puede eliminar el usuario porque está vinculado a una venta.' });
+export const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const sales = await Sale.find();
+    const userHasSales = sales.some(sale => sale.id_usuario === parseInt(id));
+    if (userHasSales) {
+      return res.status(400).json({ message: 'No se puede eliminar el usuario porque está vinculado a una venta.' });
+    }
+    const user = await User.findOne({ id: parseInt(id) });
+    if (!user) {
+      return res.status(400).json({ message: 'Usuario no encontrado.' });
+    }
+    await User.findOneAndDelete({ id: parseInt(id) });
+    res.status(200).json({ message: 'Usuario eliminado correctamente.' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al eliminar usuario' });
   }
-  const userIndex = usersData.findIndex(user => user.id === parseInt(id));
-  if (userIndex === -1) {
-    return res.status(400).json({ message: 'Usuario no encontrado.' });
-  }
-  usersData.splice(userIndex, 1);
-  res.status(200).json({ message: 'Usuario eliminado correctamente.' });
 };

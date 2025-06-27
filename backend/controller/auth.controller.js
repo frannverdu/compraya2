@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import usersData from '../data/usuarios.json' with { type: "json" };
+import { User } from '../models/models.js';
 
 let refreshTokens = []; // Para manejar logout
 
@@ -21,8 +21,8 @@ const generateTokens = (user) => {
 };
 
 // Función helper para buscar usuario por email
-const findUserByEmail = (email) => {
-  return usersData.find(user => user.email === email);
+const findUserByEmail = async (email) => {
+  return await User.findOne({ email: email });
 };
 
 // REGISTRO DE USUARIO
@@ -46,7 +46,7 @@ export const register = async (req, res) => {
     }
 
     // Verificar si el usuario ya existe
-    const existingUser = findUserByEmail(email);
+    const existingUser = await findUserByEmail(email);
     if (existingUser) {
       return res.status(409).json({
         success: false,
@@ -57,9 +57,13 @@ export const register = async (req, res) => {
     // Hashear contraseña
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
 
+    // Obtener nuevo ID
+    const usersData = await User.find();
+    const newId = usersData.length > 0 ? Math.max(...usersData.map(u => u.id)) + 1 : 1;
+
     // Crear nuevo usuario
     const newUser = {
-      id: usersData.length > 0 ? Math.max(...usersData.map(u => u.id)) + 1 : 1,
+      id: newId,
       name: name.trim(),
       email: email.toLowerCase().trim(),
       password: hashedPassword,
@@ -68,20 +72,20 @@ export const register = async (req, res) => {
       createdAt: new Date().toISOString()
     };
 
-    usersData.push(newUser);
+    const savedUser = await User.create(newUser);
 
     // Generar tokens
-    const { accessToken, refreshToken } = generateTokens(newUser);
+    const { accessToken, refreshToken } = generateTokens(savedUser);
     refreshTokens.push(refreshToken);
 
     res.status(201).json({
       success: true,
       message: 'Usuario registrado exitosamente',
       user: {
-        id: newUser.id,
-        name: newUser.name,
-        email: newUser.email,
-        role: newUser.role
+        id: savedUser.id,
+        name: savedUser.name,
+        email: savedUser.email,
+        role: savedUser.role
       },
       tokens: {
         accessToken,
@@ -110,7 +114,7 @@ export const login = async (req, res) => {
     }
 
     // Buscar usuario
-    const user = findUserByEmail(email.toLowerCase().trim());
+    const user = await findUserByEmail(email.toLowerCase().trim());
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -132,7 +136,7 @@ export const login = async (req, res) => {
     refreshTokens.push(refreshToken);
 
     // Extraer la contraseña del objeto user y retornar el resto
-    const { password: userPassword, ...userWithoutPassword } = user;
+    const { password: userPassword, ...userWithoutPassword } = user.toObject();
 
     res.json({
       success: true,

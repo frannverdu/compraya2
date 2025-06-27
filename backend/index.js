@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import jwt from "jsonwebtoken";
+import connectDB from './config/database.js';
 
 import usersRoutes from "./routes/users.routes.js";
 import productsRoutes from "./routes/products.routes.js";
@@ -8,6 +9,7 @@ import salesRoutes from "./routes/sales.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 
 const app = express();
+connectDB();
 
 app.use(cors());
 app.use(express.json());
