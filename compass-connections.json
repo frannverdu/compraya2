@@ -1,0 +1,27 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "080f2e4c-0631-454e-8957-fdb6f22fe66d",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1751664533088"
+        }
+      },
+      "favorite": {
+        "name": "compraya-cluster.pbp7ewm.mongodb.net",
+        "color": "color6"
+      },
+      "savedConnectionType": "recent",
+      "connectionOptions": {
+        "connectionString": "mongodb+srv://frannverdu:1234@compraya-cluster.pbp7ewm.mongodb.net/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}
