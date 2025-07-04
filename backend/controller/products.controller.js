@@ -55,11 +55,13 @@ export const getProductByParams = async (req, res) => {
         const { names, prices, categories } = req.body || {};
         const data = await Product.find();
         let filteredProducts = data;
+        console.log(filteredProducts);
+        
         
         // Filtro por nombres
         if (names && Array.isArray(names) && names.length) {
             filteredProducts = filteredProducts.filter(product =>
-                names.some(name => product.nombre.toLowerCase().includes(name.toLowerCase()))
+                names.some(name => product.name.toLowerCase().includes(name.toLowerCase()))
             );
         }
         
@@ -69,10 +71,10 @@ export const getProductByParams = async (req, res) => {
             const maxPrice = parseFloat(prices[1]);
 
             filteredProducts = filteredProducts.filter(product => {
-                if (product.precio === undefined || product.precio === null) {
+                if (product.price === undefined || product.price === null) {
                     return false;
                 }
-                const productPrice = parseFloat(product.precio);
+                const productPrice = parseFloat(product.price);
                 return productPrice >= minPrice && productPrice <= maxPrice;
             });
         }
@@ -81,7 +83,7 @@ export const getProductByParams = async (req, res) => {
         if (categories && Array.isArray(categories) && categories.length) {
             filteredProducts = filteredProducts.filter(product =>
                 categories.some(category =>
-                    product.categoria.toLowerCase() === category.toLowerCase()
+                    product.category.toLowerCase() === category.toLowerCase()
                 )
             );
         }
