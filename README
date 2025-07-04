@@ -1,0 +1,13 @@
+Tecnologías utilizadas:
+
+Bootstrap
+
+Node.js con Express
+
+MongoDB (utilizando Atlas como servicio de base de datos en la nube)
+
+Para el frontend reutilicé la misma página desarrollada el año anterior, utilizando su estructura como base. A partir de ahí comencé a desarrollar el backend con Node.js, trabajando inicialmente con datos hardcodeados en archivos JSON.
+
+Implementé controladores para realizar operaciones CRUD (crear, leer, actualizar y eliminar) de forma organizada. Tambien se craron metodos byparams para filtrar.
+
+Al final del desarrollo, se agrego autenticación mediante JWT (JSON Web Tokens) para proteger algunas rutas y utilicé bcrypt para encriptar las contraseñas de los usuarios.
